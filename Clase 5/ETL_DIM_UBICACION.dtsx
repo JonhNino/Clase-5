@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL_DIM_UBICACION"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{E250BD47-DD58-4570-B3BC-2E1BA0E80656}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{77E37567-5706-4CDC-8FC9-6C76751BBD2A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -874,7 +874,7 @@ order by 1,2,3</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="181,42"
+          Size="180.888888888889,41.7777777777778"
           Id="Package\DF_DIM_UBICACION"
           TopLeft="135.666661275758,67.7155560937104" />
       </GraphLayout>
@@ -886,27 +886,27 @@ order by 1,2,3</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="183,42"
+          Size="183.111111111112,41.7777777777778"
           Id="Package\DF_DIM_UBICACION\DC_CONVERSIONES"
           TopLeft="211.961271038695,191.454546976089" />
         <NodeLayout
-          Size="183,42"
+          Size="183.111111111112,41.7777777777778"
           Id="Package\DF_DIM_UBICACION\LKP_DIM_UBICACION"
           TopLeft="203.762618165828,303.779800394023" />
         <NodeLayout
-          Size="204,42"
+          Size="204,41.7777777777778"
           Id="Package\DF_DIM_UBICACION\TBL_DIM_UBICACION_T0"
           TopLeft="191.473056364608,543.732664253859" />
         <NodeLayout
-          Size="130,42"
+          Size="129.777777777778,41.7777777777778"
           Id="Package\DF_DIM_UBICACION\Row Count"
           TopLeft="521.666645937496,417.066669504378" />
         <NodeLayout
-          Size="186,42"
+          Size="185.777777777778,41.7777777777778"
           Id="Package\DF_DIM_UBICACION\TBL_DIM_UBICACION"
           TopLeft="210.648139777743,80.6000006405512" />
         <NodeLayout
-          Size="154,42"
+          Size="153.777777777778,41.7777777777778"
           Id="Package\DF_DIM_UBICACION\Conditional Split"
           TopLeft="220.286186532809,420.289565629724" />
         <EdgeLayout
@@ -957,25 +957,25 @@ order by 1,2,3</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_DIM_UBICACION.Paths[NUEVO]"
-          TopLeft="295.279621448709,461.889565629724">
+          TopLeft="295.324065893153,462.067343407502">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,81.8430986241349"
+              EndConnector="0,81.6653208463571"
               Start="0,0"
-              End="0,74.3430986241349">
+              End="0,74.1653208463571">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,74.3430986241349" />
+                    End="0,74.1653208463571" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-16.4128125,32.3849282183174,32.825625,9.5732421875"
+              BoundingBox="-16.4128125,32.2960393294285,32.825625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1046,7 +1046,7 @@ order by 1,2,3</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1056,7 +1056,7 @@ order by 1,2,3</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

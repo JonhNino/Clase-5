@@ -11,24 +11,10 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{8212CC1A-63DB-473B-910B-8FB3E28DFDC0}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{5619B4FD-5682-44DA-99C2-EFFC5ADE492A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{765E374A-0425-469C-93C3-6AB4F6AE4DD5}"
-      DTS:ObjectName="DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-LSG58H1\SQLSERVER;Initial Catalog=DWH_UPTC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{765E374A-0425-469C-93C3-6AB4F6AE4DD5}DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -328,8 +314,8 @@ where [refTable].[LLAVE] = ?</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_SEDE_RECEPTORA\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -500,8 +486,8 @@ ORDER BY 1</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -617,8 +603,8 @@ ORDER BY 1</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA_T0.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LSG58H1\SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -744,97 +730,77 @@ ORDER BY 1</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="216,41.7777777777778"
-          Id="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA"
-          TopLeft="253.333323266771,27.793104362261" />
-        <NodeLayout
           Size="153.333333333334,41.7777777777778"
           Id="Package\DF_DIM_SEDE_RECEPTORA\Derived Column"
           TopLeft="288.333321875996,127.310349014228" />
-        <EdgeLayout
-          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[OLE DB Source Output]"
-          TopLeft="363.166655904717,69.5708821400388">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.7394668741891"
-              Start="0,0"
-              End="0,50.2394668741891">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.2394668741891" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="112.888888888889,41.7777777777778"
           Id="Package\DF_DIM_SEDE_RECEPTORA\Lookup"
           TopLeft="314.999987483025,213.295025849818" />
-        <EdgeLayout
-          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[Derived Column Output]"
-          TopLeft="368.222210235066,169.088126792006">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.2068990578125"
-              Start="0,0"
-              End="0,36.7068990578125">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.7068990578125" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="234.222222222223,41.7777777777778"
+          Id="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA_T0"
+          TopLeft="258.33332306809,401.203066342919" />
+        <NodeLayout
+          Size="216,41.7777777777778"
+          Id="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA"
+          TopLeft="253.333323266771,27.793104362261" />
         <NodeLayout
           Size="154.666666666667,41.7777777777778"
           Id="Package\DF_DIM_SEDE_RECEPTORA\Conditional Split"
           TopLeft="291.666655076875,304.448282716958" />
+        <NodeLayout
+          Size="129.777777777778,41.7777777777778"
+          Id="Package\DF_DIM_SEDE_RECEPTORA\Row Count"
+          TopLeft="537.91664529178,305.072797642467" />
         <EdgeLayout
-          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[Lookup Match Output]"
-          TopLeft="370.222210168839,255.072803627596">
+          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[REPETIDO]"
+          TopLeft="446.333321743542,325.649429068601">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.3754790893616"
+              EndConnector="91.583323548238,0"
               Start="0,0"
-              End="0,41.8754790893616">
+              End="84.083323548238,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.8754790893616" />
+                    End="84.083323548238,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,15.1330520446808,96.3827734375,11.609375"
+              BoundingBox="-4.385076507131,5,92.8534765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="234.222222222223,41.7777777777778"
-          Id="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA_T0"
-          TopLeft="258.33332306809,401.203066342919" />
-        <NodeLayout
-          Size="129.777777777778,41.7777777777778"
-          Id="Package\DF_DIM_SEDE_RECEPTORA\Row Count"
-          TopLeft="537.91664529178,305.072797642467" />
+        <EdgeLayout
+          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[OLE DB Source Output]"
+          TopLeft="363.166655904717,69.5708821400388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.7394668741892"
+              Start="0,0"
+              End="0,50.2394668741892">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.2394668741892" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.1201171875,20.3331123433446,36.240234375,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[NUEVO]"
           TopLeft="372.222211294704,346.226060494735">
@@ -860,40 +826,56 @@ ORDER BY 1</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[REPETIDO]"
-          TopLeft="446.333321743542,325.649429068601">
+          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[Lookup Match Output]"
+          TopLeft="370.222210168839,255.072803627596">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="91.583323548238,0"
+              EndConnector="0,49.3754790893616"
               Start="0,0"
-              End="84.083323548238,0">
+              End="0,41.8754790893616">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="84.083323548238,0" />
+                    End="0,41.8754790893616" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="18.388849274119,5,47.305625,9.5732421875"
+              BoundingBox="-70.80673828125,15.1330520446808,141.6134765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DF_DIM_SEDE_RECEPTORA.Paths[Derived Column Output]"
+          TopLeft="368.222210235066,169.088126792006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.2068990578125"
+              Start="0,0"
+              End="0,36.7068990578125">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7068990578125" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.1201171875,13.5668284351562,36.240234375,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DF_DIM_SEDE_RECEPTORA\Lookup">
     <Properties>
@@ -927,6 +909,14 @@ ORDER BY 1</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
