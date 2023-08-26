@@ -1,0 +1,2023 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/25/2023 7:02:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LSG58H1"
+  DTS:CreatorName="DESKTOP-LSG58H1\LENOVO"
+  DTS:DTSID="{DD457B89-64C8-43E8-808B-366DD82329EC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{94CFD0D2-A2D0-4407-9817-D01AD4721E23}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B360BACC-A4A5-468B-BDA2-DA44CD60E317}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0629EC64-5F40-4206-818E-0C0C19C12666}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE TBL_FACT_HURTO_MOTO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FACT_TABLE_HURTOS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5f7eeff7-cc31-4679-bd2f-7d673d1d3838}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FACT_TABLE_HURTOS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\Data Conversion.Inputs[Data Conversion Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Derived Column.Inputs[Derived Column Input].Columns[cantidad]"
+                      cachedDataType="r8"
+                      cachedName="cantidad"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[cantidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[FECHA_CARGUE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[FECHA_CARGUE]"
+                      name="FECHA_CARGUE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[CANTIDAD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[CANTIDAD]"
+                      name="CANTIDAD"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[cantidad]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)cantidad</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="FACT_TABLE_HURTOS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+FORMAT(convert(date, [fecha_hecho]),'yyyyMMdd') AS SK_DIM_TIEMPO,
+TRIM(CONCAT(A.modalidad,a.conducta_especial,a.medio_transporte, a.arma_medio)) AS MODALIDAD_HURTO,
+TRIM(CONCAT(a.bien,a.categoria_bien,a.grupo_bien,a.modelo,a.color)) AS PRODUCTO_HURTADO,
+A.sede_receptora,
+TRIM(CONCAT(A.codigo_comuna,A.nombre_barrio,A.lugar,A.latitud,A.longitud)) AS UBICACION,
+TRIM(CONCAT(A.edad,A.sexo,A.estado_civil)) AS PERSONA,
+CAST(A.cantidad as float) as cantidad
+FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO] A</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Connections[OleDbConnection]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[SK_DIM_TIEMPO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[SK_DIM_TIEMPO]"
+                      length="4000"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[SK_DIM_TIEMPO]"
+                      name="SK_DIM_TIEMPO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[MODALIDAD_HURTO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[MODALIDAD_HURTO]"
+                      length="200"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[MODALIDAD_HURTO]"
+                      name="MODALIDAD_HURTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PRODUCTO_HURTADO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTO_HURTADO]"
+                      length="250"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PRODUCTO_HURTADO]"
+                      name="PRODUCTO_HURTADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[sede_receptora]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[sede_receptora]"
+                      length="100"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[sede_receptora]"
+                      name="sede_receptora"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[UBICACION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[UBICACION]"
+                      length="300"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[UBICACION]"
+                      name="UBICACION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PERSONA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[PERSONA]"
+                      length="150"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PERSONA]"
+                      name="PERSONA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[cantidad]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[cantidad]"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[cantidad]"
+                      name="cantidad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[SK_DIM_TIEMPO]"
+                      dataType="wstr"
+                      length="4000"
+                      name="SK_DIM_TIEMPO" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[MODALIDAD_HURTO]"
+                      dataType="wstr"
+                      length="200"
+                      name="MODALIDAD_HURTO" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTO_HURTADO]"
+                      dataType="wstr"
+                      length="250"
+                      name="PRODUCTO_HURTADO" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[sede_receptora]"
+                      dataType="wstr"
+                      length="100"
+                      name="sede_receptora" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[UBICACION]"
+                      dataType="wstr"
+                      length="300"
+                      name="UBICACION" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[PERSONA]"
+                      dataType="wstr"
+                      length="150"
+                      name="PERSONA" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].ExternalColumns[cantidad]"
+                      dataType="r8"
+                      name="cantidad" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[SK_DIM_TIEMPO]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[SK_DIM_TIEMPO]"
+                      name="SK_DIM_TIEMPO" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[MODALIDAD_HURTO]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[MODALIDAD_HURTO]"
+                      name="MODALIDAD_HURTO" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[PRODUCTO_HURTADO]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[PRODUCTO_HURTADO]"
+                      name="PRODUCTO_HURTADO" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[sede_receptora]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[sede_receptora]"
+                      name="sede_receptora" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[UBICACION]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[UBICACION]"
+                      name="UBICACION" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[PERSONA]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[PERSONA]"
+                      name="PERSONA" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[cantidad]"
+                      dataType="r8"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[cantidad]"
+                      name="cantidad" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DIM_MODALIDAD_HURTO"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SK_DIM_MODALIDAD_HURTO]
+      ,CONCAT([STR_MODALIDAD]
+      ,[STR_CONDUCTA_ESPECIAL]
+      ,[STR_MEDIO_TRANSPORTE]
+      ,[STR_ARMA_MEDIO]) AS LLAVE_DIM_HURTO
+      
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_MODALIDAD_HURTO_T0]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [SK_DIM_MODALIDAD_HURTO]
+      ,CONCAT([STR_MODALIDAD]
+      ,[STR_CONDUCTA_ESPECIAL]
+      ,[STR_MEDIO_TRANSPORTE]
+      ,[STR_ARMA_MEDIO]) AS LLAVE_DIM_HURTO
+      
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_MODALIDAD_HURTO_T0]) [refTable]
+where [refTable].[LLAVE_DIM_HURTO] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_DIM_MODALIDAD_HURTO" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LLAVE_DIM_HURTO" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[MODALIDAD_HURTO]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Connections[OleDbConnection]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Inputs[Lookup Input].Columns[MODALIDAD_HURTO]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="MODALIDAD_HURTO"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[MODALIDAD_HURTO]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LLAVE_DIM_HURTO</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Match Output].Columns[SK_DIM_MODALIDAD_HURTO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Match Output].Columns[SK_DIM_MODALIDAD_HURTO]"
+                      name="SK_DIM_MODALIDAD_HURTO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SK_DIM_MODALIDAD_HURTO</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DIM_PERSONA"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SK_DIM_PERSONA]
+      ,CONCAT([STR_EDAD]
+      ,[STR_SEXO]
+      ,[STR_ESTADO_CIVIL]) AS LLAVE_DIM_PERSONA
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_PERSONA_T0]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [SK_DIM_PERSONA]
+      ,CONCAT([STR_EDAD]
+      ,[STR_SEXO]
+      ,[STR_ESTADO_CIVIL]) AS LLAVE_DIM_PERSONA
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_PERSONA_T0]) [refTable]
+where [refTable].[LLAVE_DIM_PERSONA] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_DIM_PERSONA" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LLAVE_DIM_PERSONA" dataType="DT_WSTR" length="150" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PERSONA]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Connections[OleDbConnection]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Inputs[Lookup Input].Columns[PERSONA]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="PERSONA"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PERSONA]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LLAVE_DIM_PERSONA</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Match Output].Columns[SK_DIM_PERSONA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Match Output].Columns[SK_DIM_PERSONA]"
+                      name="SK_DIM_PERSONA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SK_DIM_PERSONA</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DIM_PRODUCTO_HURTADO"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SK_DIM_PRODUCTO_HURTADO]
+      ,CONCAT([STR_BIEN]
+      ,[STR_CATEGORIA_BIEN]
+      ,[STR_GRUPO_BIEN]
+      ,[STR_MODELO]
+      ,[STR_COLOR]) AS LLAVE_PRODUCTO_HURTADO
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_PRODUCTO_HURTADO_T0]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [SK_DIM_PRODUCTO_HURTADO]
+      ,CONCAT([STR_BIEN]
+      ,[STR_CATEGORIA_BIEN]
+      ,[STR_GRUPO_BIEN]
+      ,[STR_MODELO]
+      ,[STR_COLOR]) AS LLAVE_PRODUCTO_HURTADO
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_PRODUCTO_HURTADO_T0]) [refTable]
+where [refTable].[LLAVE_PRODUCTO_HURTADO] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_DIM_PRODUCTO_HURTADO" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LLAVE_PRODUCTO_HURTADO" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PRODUCTO_HURTADO]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Connections[OleDbConnection]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Inputs[Lookup Input].Columns[PRODUCTO_HURTADO]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="PRODUCTO_HURTADO"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[PRODUCTO_HURTADO]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LLAVE_PRODUCTO_HURTADO</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Match Output].Columns[SK_DIM_PRODUCTO_HURTADO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Match Output].Columns[SK_DIM_PRODUCTO_HURTADO]"
+                      name="SK_DIM_PRODUCTO_HURTADO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SK_DIM_PRODUCTO_HURTADO</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DIM_SEDE_RECEPTORA"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SK_DIM_SEDE_RECEPTORA]
+      ,[STR_SEDE_RECEPTORA]
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_SEDE_RECEPTORA_T0]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [SK_DIM_SEDE_RECEPTORA]
+      ,[STR_SEDE_RECEPTORA]
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_SEDE_RECEPTORA_T0]) [refTable]
+where [refTable].[STR_SEDE_RECEPTORA] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_DIM_SEDE_RECEPTORA" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="STR_SEDE_RECEPTORA" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[sede_receptora]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Connections[OleDbConnection]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Inputs[Lookup Input].Columns[sede_receptora]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sede_receptora"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[sede_receptora]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">STR_SEDE_RECEPTORA</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Match Output].Columns[SK_DIM_SEDE_RECEPTORA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Match Output].Columns[SK_DIM_SEDE_RECEPTORA]"
+                      name="SK_DIM_SEDE_RECEPTORA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SK_DIM_SEDE_RECEPTORA</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LKP_DIM_UBICACION"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [SK_DIM_UBICACION]
+      ,CONCAT([STR_CODIGO_COMUNA]
+      ,[STR_BARRIO]
+      ,[STR_LUGAR]
+      ,[STR_LATITUD]
+      ,[STR_LONGITUD]) AS LLAVE_DIM_UBICACION
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_UBICACION_T0]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [SK_DIM_UBICACION]
+      ,CONCAT([STR_CODIGO_COMUNA]
+      ,[STR_BARRIO]
+      ,[STR_LUGAR]
+      ,[STR_LATITUD]
+      ,[STR_LONGITUD]) AS LLAVE_DIM_UBICACION
+  FROM [DWH_UPTC].[dbo].[TBL_DIM_UBICACION_T0]) [refTable]
+where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_DIM_UBICACION" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LLAVE_DIM_UBICACION" dataType="DT_WSTR" length="300" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[UBICACION]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Connections[OleDbConnection]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Inputs[Lookup Input].Columns[UBICACION]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="UBICACION"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[UBICACION]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LLAVE_DIM_UBICACION</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Match Output].Columns[SK_DIM_UBICACION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Match Output].Columns[SK_DIM_UBICACION]"
+                      name="SK_DIM_UBICACION"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SK_DIM_UBICACION</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FACT_TABLE_HURTOS\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TBL_FACT_HURTO_MOTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_TIEMPO]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="SK_DIM_TIEMPO"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_TIEMPO]"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[SK_DIM_TIEMPO]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_MODALIDAD_HURTO]"
+                      cachedDataType="i4"
+                      cachedName="SK_DIM_MODALIDAD_HURTO"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_MODALIDAD_HURTO]"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Match Output].Columns[SK_DIM_MODALIDAD_HURTO]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_PRODUCTO_HURTADO]"
+                      cachedDataType="i4"
+                      cachedName="SK_DIM_PRODUCTO_HURTADO"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_PRODUCTO_HURTADO]"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Match Output].Columns[SK_DIM_PRODUCTO_HURTADO]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_SEDE_RECEPTORA]"
+                      cachedDataType="i4"
+                      cachedName="SK_DIM_SEDE_RECEPTORA"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_SEDE_RECEPTORA]"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Match Output].Columns[SK_DIM_SEDE_RECEPTORA]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_UBICACION]"
+                      cachedDataType="i4"
+                      cachedName="SK_DIM_UBICACION"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_UBICACION]"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Match Output].Columns[SK_DIM_UBICACION]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_PERSONA]"
+                      cachedDataType="i4"
+                      cachedName="SK_DIM_PERSONA"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_PERSONA]"
+                      lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Match Output].Columns[SK_DIM_PERSONA]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cantidad]"
+                      cachedDataType="r8"
+                      cachedName="cantidad"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUM_CANTIDAD]"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[cantidad]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CARGUE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FECHA_CARGUE"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DT_FECHA_CARGUE]"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[FECHA_CARGUE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_TIEMPO]"
+                      dataType="i4"
+                      name="SK_DIM_TIEMPO" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_MODALIDAD_HURTO]"
+                      dataType="i4"
+                      name="SK_DIM_MODALIDAD_HURTO" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_PRODUCTO_HURTADO]"
+                      dataType="i4"
+                      name="SK_DIM_PRODUCTO_HURTADO" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_SEDE_RECEPTORA]"
+                      dataType="i4"
+                      name="SK_DIM_SEDE_RECEPTORA" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_UBICACION]"
+                      dataType="i4"
+                      name="SK_DIM_UBICACION" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_PERSONA]"
+                      dataType="i4"
+                      name="SK_DIM_PERSONA" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUM_CANTIDAD]"
+                      dataType="i4"
+                      name="NUM_CANTIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DT_FECHA_CARGUE]"
+                      dataType="dbTimeStamp"
+                      name="DT_FECHA_CARGUE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Derived Column Output]"
+              endId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output]"
+              endId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output1]"
+              endId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output2]"
+              endId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output3]"
+              endId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output4]"
+              endId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Lookup No Match Output]"
+              endId="Package\FACT_TABLE_HURTOS\Data Conversion.Inputs[Data Conversion Input]"
+              name="Lookup No Match Output"
+              startId="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[Lookup No Match Output1]"
+              endId="Package\FACT_TABLE_HURTOS\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Lookup No Match Output"
+              startId="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\FACT_TABLE_HURTOS.Paths[OLE DB Source Output]"
+              endId="Package\FACT_TABLE_HURTOS\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1ECDD43E-F851-46E0-85C0-FA3C4888436E}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FACT_TABLE_HURTOS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="185.777777777778,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS"
+          TopLeft="149.166660739316,76.6551749346231" />
+        <NodeLayout
+          Size="163.111111111112,50.2222222222223"
+          Id="Package\Execute SQL Task"
+          TopLeft="153.333327240414,3.13793113767462" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="238.472216212087,53.3601533598968">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.2950215747263"
+              Start="0,0"
+              End="0,15.7950215747263">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7950215747263" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FACT_TABLE_HURTOS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="185.777777777778,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS"
+          TopLeft="493.406065049889,0.754241951459154" />
+        <NodeLayout
+          Size="153.333333333334,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\Derived Column"
+          TopLeft="517.619027050715,75.566504948083" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[OLE DB Source Output]"
+          TopLeft="590.29032382808,42.5320197292369">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.034485218846"
+              Start="0,0"
+              End="0,25.534485218846">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.534485218846" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="227.111111111112,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO"
+          TopLeft="477.248658284519,156.555013358542" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Derived Column Output]"
+          TopLeft="592.544953778728,117.344282725861">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.2107306326817"
+              Start="0,0"
+              End="0,31.7107306326817">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7107306326817" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="235.555555555556,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO"
+          TopLeft="470.767177060589,244.705717124963" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output]"
+          TopLeft="589.674584339221,198.33279113632">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.3729259886429"
+              Start="0,0"
+              End="0,38.8729259886429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8729259886429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,13.6317754943214,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA"
+          TopLeft="489.880932914833,326.360163070463" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output1]"
+          TopLeft="588.544954838366,286.483494902741">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.33597807646652,39.8766681677222"
+              Start="0,0"
+              End="9.33597807646652,32.3766681677222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9383340838611" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.9383340838611"
+                    Point2="0,19.9383340838611"
+                    Point3="4,19.9383340838611" />
+                  <mssgle:LineSegment
+                    End="5.33597807646652,19.9383340838611" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.33597807646652,19.9383340838611"
+                    Point2="9.33597807646652,19.9383340838611"
+                    Point3="9.33597807646652,23.9383340838611" />
+                  <mssgle:LineSegment
+                    End="9.33597807646652,32.3766681677222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.5233976805167,24.9383340838611,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="182.222222222223,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION"
+          TopLeft="511.309503491909,411.373846452121" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output2]"
+          TopLeft="600.150773758927,368.137940848241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2359056038804"
+              Start="0,0"
+              End="0,35.7359056038804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7359056038804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.0632653019402,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172.888888888889,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA"
+          TopLeft="519.047598422521,482.621794433454" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output3]"
+          TopLeft="603.956328734993,453.151624229899">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.4701702035554"
+              Start="0,0"
+              End="0,21.9701702035554">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9701702035554" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,5.18039760177768,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.666666666667,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\OLE DB Destination"
+          TopLeft="521.571408064593,566.301235408589" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output4]"
+          TopLeft="606.198392132446,524.399572211232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.9016631973568"
+              Start="0,0"
+              End="0,34.4016631973568">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4016631973568" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.3961440986784,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\Data Conversion"
+          TopLeft="821.428538787934,323.448281800867" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Lookup No Match Output]"
+          TopLeft="705.880932914833,345.793111324554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.547605873101,0"
+              Start="0,0"
+              End="108.047605873101,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.047605873101,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.6512361259495,5,129.350078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\Data Conversion 1"
+          TopLeft="822.02377685952,247.219491286728" />
+        <EdgeLayout
+          Id="Package\FACT_TABLE_HURTOS.Paths[Lookup No Match Output1]"
+          TopLeft="706.322732616144,266.851493094735">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.701044243375,0"
+              Start="0,0"
+              End="108.201044243375,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="108.201044243375,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-10.5745169408124,5,129.350078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
