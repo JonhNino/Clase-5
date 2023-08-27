@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{F1440C50-D144-4F82-9C7B-0B6E8331349B}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{DE588C1A-6CD9-42F3-9711-C8F73BBAD51C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -158,6 +158,12 @@
                       cachedDataType="r8"
                       cachedName="cantidad"
                       lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[cantidad]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Derived Column.Inputs[Derived Column Input].Columns[SK_DIM_TIEMPO]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="SK_DIM_TIEMPO"
+                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[SK_DIM_TIEMPO]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -212,6 +218,28 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">(DT_I4)cantidad</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[CONV_SK_DIM_TIEMPO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[CONV_SK_DIM_TIEMPO]"
+                      name="CONV_SK_DIM_TIEMPO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)#{Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[SK_DIM_TIEMPO]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)SK_DIM_TIEMPO</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1393,13 +1421,6 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_TIEMPO]"
-                      cachedDataType="wstr"
-                      cachedLength="4000"
-                      cachedName="SK_DIM_TIEMPO"
-                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_TIEMPO]"
-                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[SK_DIM_TIEMPO]" />
-                    <inputColumn
                       refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SK_DIM_MODALIDAD_HURTO]"
                       cachedDataType="i4"
                       cachedName="SK_DIM_MODALIDAD_HURTO"
@@ -1441,6 +1462,12 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
                       cachedName="FECHA_CARGUE"
                       externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DT_FECHA_CARGUE]"
                       lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[FECHA_CARGUE]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CONV_SK_DIM_TIEMPO]"
+                      cachedDataType="i4"
+                      cachedName="CONV_SK_DIM_TIEMPO"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_TIEMPO]"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[CONV_SK_DIM_TIEMPO]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1639,7 +1666,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
         <NodeLayout
           Size="164.888888888889,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\Data Conversion 1"
-          TopLeft="822.02377685952,247.219491286728" />
+          TopLeft="784.940444999746,244.529836025864" />
         <NodeLayout
           Size="216,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA"
@@ -1651,7 +1678,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
         <NodeLayout
           Size="156,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\Data Conversion"
-          TopLeft="808.928539284639,324.195408262218" />
+          TopLeft="784.761873578269,325.988511769461" />
         <NodeLayout
           Size="170.666666666667,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\OLE DB Destination"
@@ -1680,73 +1707,73 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FACT_TABLE_HURTOS.Paths[Lookup No Match Output1]"
-          TopLeft="706.322732616145,266.851493094734">
+          TopLeft="706.322732616145,265.506665464302">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="115.701044243375,0"
+              EndConnector="78.6177123836014,0"
               Start="0,0"
-              End="108.201044243375,0">
+              End="71.1177123836014,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="108.201044243375,0" />
+                    End="71.1177123836014,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-10.5745169408123,5,129.350078125,16"
+              BoundingBox="-29.1161828706993,5,129.350078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FACT_TABLE_HURTOS.Paths[Lookup No Match Output]"
-          TopLeft="693.380933411538,346.540237785905">
+          TopLeft="693.380933411538,347.436789539526">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="115.547605873101,0"
+              EndConnector="91.3809401667312,0"
               Start="0,0"
-              End="108.047605873101,0">
+              End="83.8809401667312,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="108.047605873101,0" />
+                    End="83.8809401667312,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-10.6512361259495,5,129.350078125,16"
+              BoundingBox="-22.7345689791344,5,129.350078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FACT_TABLE_HURTOS.Paths[Lookup Match Output4]"
-          TopLeft="593.698392629151,525.146698672583">
+          TopLeft="593.698392629151,525.146698672584">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,41.9016631973568"
+              EndConnector="0,41.9016631973561"
               Start="0,0"
-              End="0,34.4016631973568">
+              End="0,34.4016631973561">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.4016631973568" />
+                    End="0,34.4016631973561" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.3961440986784,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,11.3961440986781,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1756,21 +1783,21 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.4701702035554"
+              EndConnector="0,29.4701702035563"
               Start="0,0"
-              End="0,21.9701702035554">
+              End="0,21.9701702035563">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.9701702035554" />
+                    End="0,21.9701702035563" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,5.1803976017777,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,5.18039760177814,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1877,7 +1904,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1887,7 +1914,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
