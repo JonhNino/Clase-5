@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{D193E1F5-C3BD-4C65-A6BC-31A25CC913B4}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{6C857BD8-3BE5-4F33-AAFC-B65E06A18CEB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -466,6 +466,7 @@ where [refTable].[LLAVE] = ?</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
 CASE 
 WHEN edad  = '-1' THEN 'SIN DATO '
+WHEN edad  = '1' THEN 'SIN DATO '
 ELSE edad 
 END AS
 edad, sexo, estado_civil
@@ -495,8 +496,8 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_PERSONA\TBL_DIM_PERSONA.Connections[OleDbConnection]"
-                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{F7099409-82FA-43C3-8E1C-9D033DE2910C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.STAGEUPTC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -805,17 +806,9 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="172.888888888889,41.7777777777778"
-          Id="Package\DF_DIM_PERSONA\TBL_DIM_PERSONA"
-          TopLeft="218.333324657546,0.448275876810666" />
-        <NodeLayout
           Size="153.333333333334,41.7777777777778"
           Id="Package\DF_DIM_PERSONA\Derived Column"
           TopLeft="231.249990810951,98.1724170215349" />
-        <NodeLayout
-          Size="139.111111111112,41.7777777777778"
-          Id="Package\DF_DIM_PERSONA\Row Count 1"
-          TopLeft="436.83331634601,261.153261142231" />
         <NodeLayout
           Size="112.888888888889,41.7777777777778"
           Id="Package\DF_DIM_PERSONA\Lookup"
@@ -824,6 +817,14 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
           Size="191.111111111112,41.7777777777778"
           Id="Package\DF_DIM_PERSONA\TBL_DIM_PERSONA_T0"
           TopLeft="222.138883011209,348.187745316055" />
+        <NodeLayout
+          Size="172.888888888889,41.7777777777778"
+          Id="Package\DF_DIM_PERSONA\TBL_DIM_PERSONA"
+          TopLeft="218.333324657546,0.448275876810666" />
+        <NodeLayout
+          Size="139.111111111112,41.7777777777778"
+          Id="Package\DF_DIM_PERSONA\Row Count 1"
+          TopLeft="436.83331634601,261.153261142231" />
         <NodeLayout
           Size="154.666666666667,41.7777777777778"
           Id="Package\DF_DIM_PERSONA\Conditional Split"
@@ -930,7 +931,7 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,5.97213231280894,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,5.97213231280895,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -960,20 +961,12 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DF_DIM_PERSONA\TBL_DIM_PERSONA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DF_DIM_PERSONA\Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -983,7 +976,7 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1000,6 +993,14 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_DIM_PERSONA\TBL_DIM_PERSONA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

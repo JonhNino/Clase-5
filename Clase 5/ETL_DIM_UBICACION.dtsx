@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL_DIM_UBICACION"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{77E37567-5706-4CDC-8FC9-6C76751BBD2A}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{BB33A63D-B5BB-4B81-AE66-B38664CCADB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -510,8 +510,8 @@ order by 1,2,3</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_UBICACION\TBL_DIM_UBICACION.Connections[OleDbConnection]"
-                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{F7099409-82FA-43C3-8E1C-9D033DE2910C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.STAGEUPTC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

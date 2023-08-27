@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{5619B4FD-5682-44DA-99C2-EFFC5ADE492A}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{205A12FE-0173-426D-95CB-4E1A85EAEA77}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -486,8 +486,8 @@ ORDER BY 1</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_SEDE_RECEPTORA\TBL_DIM_SEDE_RECEPTORA.Connections[OleDbConnection]"
-                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{F7099409-82FA-43C3-8E1C-9D033DE2910C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.STAGEUPTC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -773,7 +773,7 @@ ORDER BY 1</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-4.385076507131,5,92.8534765625,11.609375"
+              BoundingBox="-4.385076507131,5,47.305625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -796,9 +796,7 @@ ORDER BY 1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1201171875,20.3331123433446,36.240234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -845,7 +843,7 @@ ORDER BY 1</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.80673828125,15.1330520446808,141.6134765625,11.609375"
+              BoundingBox="-70.80673828125,15.1330520446808,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -868,9 +866,7 @@ ORDER BY 1</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.1201171875,13.5668284351562,36.240234375,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -882,7 +878,7 @@ ORDER BY 1</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -892,7 +888,7 @@ ORDER BY 1</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{8B8530F1-D757-4EED-A84E-E78B0E176A2B}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{589C05CF-ADE7-43E7-8EF2-B4837DF31575}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -504,8 +504,8 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_MODULIDAD_HURTO\TBL_DIM_MODALIDAD_HURTO.Connections[OleDbConnection]"
-                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{F7099409-82FA-43C3-8E1C-9D033DE2910C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.STAGEUPTC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -857,7 +857,7 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
         <NodeLayout
           Size="227.555555555556,41.7777777777778"
           Id="Package\DF_DIM_MODULIDAD_HURTO\TBL_DIM_MODALIDAD_HURTO"
-          TopLeft="227.499990959962,26.0000008550184" />
+          TopLeft="189.999992450078,24.6551732245864" />
         <NodeLayout
           Size="129.777777777778,41.7777777777778"
           Id="Package\DF_DIM_MODULIDAD_HURTO\Row Count"
@@ -896,30 +896,18 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_DIM_MODULIDAD_HURTO.Paths[OLE DB Source Output]"
-          TopLeft="341.27776873774,67.7777786327962">
+          TopLeft="302.555547409587,66.4329510023642">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-39.9444441464214,39.3601559249518"
+              EndConnector="0,40.7049835553838"
               Start="0,0"
-              End="-39.9444441464214,31.8601559249518">
+              End="0,33.2049835553838">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.6800779624759" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.6800779624759"
-                    Point2="0,19.6800779624759"
-                    Point3="-4,19.6800779624759" />
-                  <mssgle:LineSegment
-                    End="-35.9444441464214,19.6800779624759" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-35.9444441464214,19.6800779624759"
-                    Point2="-39.9444441464214,19.6800779624759"
-                    Point3="-39.9444441464214,23.6800779624759" />
-                  <mssgle:LineSegment
-                    End="-39.9444441464214,31.8601559249518" />
+                    End="0,33.2049835553838" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1019,7 +1007,7 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1029,7 +1017,7 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{C639145D-CCEF-41B7-B6D1-7A2C31CCA699}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{FF7AB8A2-4C82-4509-AB43-D12FD66E0046}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -519,8 +519,8 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
               <connections>
                 <connection
                   refId="Package\DF_DIM_PERSONA\TBL_DIM_PRODUCTO_HURTADO.Connections[OleDbConnection]"
-                  connectionManagerID="{0629EC64-5F40-4206-818E-0C0C19C12666}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.DWH_UPTC]"
+                  connectionManagerID="{F7099409-82FA-43C3-8E1C-9D033DE2910C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-LSG58H1_SQLSERVER.STAGEUPTC]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -903,21 +903,21 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
           Id="Package\DF_DIM_PERSONA\Lookup"
           TopLeft="312.083320932256,209.344834470579" />
         <NodeLayout
-          Size="236,41.7777777777778"
-          Id="Package\DF_DIM_PERSONA\TBL_DIM_PRODUCTO_HURTADO"
-          TopLeft="254.583323217101,27.793104362261" />
-        <NodeLayout
           Size="253.777777777778,41.7777777777778"
           Id="Package\DF_DIM_PERSONA\TBL_DIM_PRODUCTO_HURTADO_T0"
-          TopLeft="279.9999888738,382.777785045434" />
-        <NodeLayout
-          Size="154.666666666667,41.7777777777778"
-          Id="Package\DF_DIM_PERSONA\Conditional Split"
-          TopLeft="289.166655176216,296.777785900452" />
+          TopLeft="242.083323713806,388.601540011606" />
         <NodeLayout
           Size="129.777777777778,41.7777777777778"
           Id="Package\DF_DIM_PERSONA\Row Count"
           TopLeft="545.833311643866,301.796936649646" />
+        <NodeLayout
+          Size="236,41.7777777777778"
+          Id="Package\DF_DIM_PERSONA\TBL_DIM_PRODUCTO_HURTADO"
+          TopLeft="254.583323217101,27.793104362261" />
+        <NodeLayout
+          Size="154.666666666667,41.7777777777778"
+          Id="Package\DF_DIM_PERSONA\Conditional Split"
+          TopLeft="289.166655176216,296.777785900452" />
         <EdgeLayout
           Id="Package\DF_DIM_PERSONA.Paths[REPETIDO]"
           TopLeft="443.833321842883,320.176250163938">
@@ -966,37 +966,25 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DF_DIM_PERSONA.Paths[NUEVO]"
-          TopLeft="366.499988509549,338.55556367823">
+          TopLeft="367.736100556122,338.55556367823">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="40.3888892531396,44.2222213672042"
+              EndConnector="0,50.0459763333766"
               Start="0,0"
-              End="40.3888892531396,36.7222213672042">
+              End="0,42.5459763333766">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.1111106836021" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.1111106836021"
-                    Point2="0,22.1111106836021"
-                    Point3="4,22.1111106836021" />
-                  <mssgle:LineSegment
-                    End="36.3888892531396,22.1111106836021" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36.3888892531396,22.1111106836021"
-                    Point2="40.3888892531396,22.1111106836021"
-                    Point3="40.3888892531396,26.1111106836021" />
-                  <mssgle:LineSegment
-                    End="40.3888892531396,36.7222213672042" />
+                    End="0,42.5459763333766" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="3.7816321265698,27.1111106836021,32.825625,9.5732421875"
+              BoundingBox="-16.4128125,16.4863670729383,32.825625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1055,7 +1043,7 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1065,16 +1053,8 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DF_DIM_PERSONA\TBL_DIM_PRODUCTO_HURTADO">
-    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -1090,6 +1070,14 @@ FROM [STAGEUPTC].[dbo].[EL_HURTO_MOTO]</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF_DIM_PERSONA\TBL_DIM_PRODUCTO_HURTADO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
