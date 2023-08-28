@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{F1C8CC01-9A8C-42BD-B3FC-0861A7BB99E3}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{422C3E44-D329-4AE5-9722-517493115C40}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -295,7 +295,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP (10) 
 FORMAT(convert(date, [fecha_hecho]),'yyyyMMdd') AS SK_DIM_TIEMPO,
 TRIM(CONCAT(A.modalidad,a.conducta_especial,a.medio_transporte, a.arma_medio)) AS MODALIDAD_HURTO,
 TRIM(CONCAT(a.bien,a.categoria_bien,a.grupo_bien,a.modelo,a.color)) AS PRODUCTO_HURTADO,
@@ -1644,10 +1644,6 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="153.333333333334,41.7777777777778"
-          Id="Package\FACT_TABLE_HURTOS\Derived Column"
-          TopLeft="517.619027050715,75.566504948083" />
-        <NodeLayout
           Size="227.111111111112,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\LKP_DIM_MODALIDAD_HURTO"
           TopLeft="477.248658284519,156.555013358542" />
@@ -1656,33 +1652,37 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           Id="Package\FACT_TABLE_HURTOS\LKP_DIM_PRODUCTO_HURTADO"
           TopLeft="470.767177060589,244.705717124963" />
         <NodeLayout
+          Size="153.333333333334,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\Derived Column"
+          TopLeft="517.619027050715,75.566504948083" />
+        <NodeLayout
           Size="185.777777777778,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS"
           TopLeft="493.406065049889,0.754241951459154" />
-        <NodeLayout
-          Size="182.222222222223,41.7777777777778"
-          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION"
-          TopLeft="498.809503988615,412.120972913472" />
         <NodeLayout
           Size="164.888888888889,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\Data Conversion 1"
           TopLeft="784.940444999746,244.529836025864" />
         <NodeLayout
+          Size="172.888888888889,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA"
+          TopLeft="506.547598919226,483.368920894806" />
+        <NodeLayout
           Size="216,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\LKP_DIM_SEDE_RECEPTORA"
           TopLeft="477.380933411538,327.107289531814" />
         <NodeLayout
-          Size="172.888888888889,41.7777777777778"
-          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA"
-          TopLeft="506.547598919226,483.368920894806" />
+          Size="170.666666666667,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\OLE DB Destination"
+          TopLeft="509.071408561299,567.04836186994" />
         <NodeLayout
           Size="156,41.7777777777778"
           Id="Package\FACT_TABLE_HURTOS\Data Conversion"
           TopLeft="784.761873578269,325.988511769461" />
         <NodeLayout
-          Size="170.666666666667,41.7777777777778"
-          Id="Package\FACT_TABLE_HURTOS\OLE DB Destination"
-          TopLeft="509.071408561299,567.04836186994" />
+          Size="182.222222222223,41.7777777777778"
+          Id="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION"
+          TopLeft="498.809503988615,412.120972913472" />
         <EdgeLayout
           Id="Package\FACT_TABLE_HURTOS.Paths[OLE DB Source Output]"
           TopLeft="590.29032382808,42.5320197292369">
@@ -1702,9 +1702,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-34.51447265625,7.980621515673,69.0289453125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1727,7 +1725,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-40.1328820894493,5,151.3834765625,11.609375"
+              BoundingBox="-20.2475305269493,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1751,7 +1749,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-33.7512681978844,5,151.3834765625,11.609375"
+              BoundingBox="-13.8659166353844,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1775,7 +1773,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,11.3961440986781,174.9734765625,11.609375"
+              BoundingBox="-48.19138671875,11.3961440986781,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1799,7 +1797,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,5.18039760177814,174.9734765625,11.609375"
+              BoundingBox="-48.19138671875,5.18039760177815,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1823,7 +1821,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,12.0632653019402,174.9734765625,11.609375"
+              BoundingBox="-48.19138671875,12.0632653019402,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1847,7 +1845,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,10.7572098145366,174.9734765625,11.609375"
+              BoundingBox="-48.19138671875,10.7572098145366,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1871,7 +1869,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-87.48673828125,13.6317754943214,174.9734765625,11.609375"
+              BoundingBox="-48.19138671875,13.6317754943214,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1894,9 +1892,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-34.51447265625,11.0687442225908,69.0289453125,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1957,7 +1953,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION">
+    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -2003,7 +1999,20 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA">
+    design-time-name="Package\FACT_TABLE_HURTOS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_TABLE_HURTOS\LKP_DIM_UBICACION">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -2022,19 +2031,6 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FACT_TABLE_HURTOS\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
