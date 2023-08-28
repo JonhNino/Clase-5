@@ -1,0 +1,512 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/27/2023 8:23:38 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LSG58H1"
+  DTS:CreatorName="DESKTOP-LSG58H1\LENOVO"
+  DTS:DTSID="{BA2FB6A7-00EA-4494-B3B7-061BD7972AB4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{B0CABF5B-B8BC-41D4-9271-721D085CE72A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LSG58H1\TABULAR_UPTC.TABULAR_MOTOS]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{22256B57-BAF9-45F1-803B-9A9491A99C8C}"
+      DTS:ObjectName="DESKTOP-LSG58H1\TABULAR_UPTC.TABULAR_MOTOS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=DESKTOP-LSG58H1\TABULAR_UPTC;Initial Catalog=TABULAR_MOTOS;Provider=MSOLAP.8;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQ_PROCEDIMIENTO_CARGUE_TABLA_HURTO"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0e7bea27-8965-4f79-80c8-0418447a9c93}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ_PROCEDIMIENTO_CARGUE_TABLA_HURTO">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCEDIMIENTO_CARGUE_TABLA_HURTO\el_hurto_moto"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="el_hurto_moto"
+          DTS:DTSID="{87c042c9-aa37-48fa-b3e4-c5dd85138a01}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="el_hurto_moto"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>el_hurto_moto.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ_PROCEDIMIENTO_CUBO"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2dbff438-a3a4-4e47-a41a-3dfbd0cb639f}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ_PROCEDIMIENTO_CUBO">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCEDIMIENTO_CUBO\PROCESAR_CUBO"
+          DTS:CreationName="Microsoft.DTSProcessingTask"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{C7C8F001-D8EC-4618-9ED9-E0A1B8755901}"
+          DTS:ExecutableType="Microsoft.DTSProcessingTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PROCESAR_CUBO"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="DESKTOP-LSG58H1\TABULAR_UPTC.TABULAR_MOTOS"
+              ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;automatic&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;,&#xA;              &quot;table&quot;: &quot;TBL_DIM_SEDE_RECEPTORA_T0&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;,&#xA;              &quot;table&quot;: &quot;TBL_FACT_HURTO_MOTO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;,&#xA;              &quot;table&quot;: &quot;TBL_DIM_TIEMPO_T0&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;,&#xA;              &quot;table&quot;: &quot;TBL_DIM_PRODUCTO_HURTADO_T0&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;,&#xA;              &quot;table&quot;: &quot;TBL_DIM_MODALIDAD_HURTO_T0&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;,&#xA;              &quot;table&quot;: &quot;TBL_DIM_UBICACION_T0&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;TABULAR_MOTOS&quot;,&#xA;              &quot;table&quot;: &quot;TBL_DIM_PERSONA_T0&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ_PROCEDIMIENTO_FACT_TABLE_HURTOS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{DAC30DE9-7819-47C4-A0E3-765123C95B52}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ_PROCEDIMIENTO_FACT_TABLE_HURTOS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCEDIMIENTO_FACT_TABLE_HURTOS\ETL_FACT_TABLE_HURTOS"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="ETL_FACT_TABLE_HURTOS"
+          DTS:DTSID="{a92f246e-50ba-4d95-b622-bcc87ad91cf7}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_FACT_TABLE_HURTOS"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ETL_FACT_TABLE_HURTOS.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ_PROCESAMIENTO_DIM"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5D804A3A-2E42-426A-8EF4-C54FCB4482DF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ_PROCESAMIENTO_DIM">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_MODALIDAD_HURTO"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{E857870F-2017-4737-8D22-261E204AFD6C}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_DIM_MODALIDAD_HURTO"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ETL_DIM_MODALIDAD_HURTO.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PERSONA"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="ETL_DIM_PERSONA"
+          DTS:DTSID="{24d1c1b2-0c6d-42fc-b156-e9af4e4bddc3}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_DIM_PERSONA"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ETL_DIM_PERSONA.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PRODUCTO_HURTADO"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="ETL_DIM_PRODUCTO_HURTADO"
+          DTS:DTSID="{067464e2-483c-4704-bfac-8412c7583e1d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_DIM_PRODUCTO_HURTADO"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ETL_DIM_PRODUCTO_HURTADO.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_SEDE_RECEPTORA"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="ETL_DIM_SEDE_RECEPTORA"
+          DTS:DTSID="{31e02211-cf9a-4bbc-acd0-b032a48de0d5}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_DIM_SEDE_RECEPTORA"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ETL_DIM_SEDE_RECEPTORA.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_UBICACION"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="ETL_DIM_UBICACION"
+          DTS:DTSID="{b94d3018-6d7a-4801-afd6-7c744928b303}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ETL_DIM_UBICACION"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ETL_DIM_UBICACION.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4D931FD5-C77E-4332-B8E3-7DB103EC1740}"
+          DTS:From="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_MODALIDAD_HURTO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PRODUCTO_HURTADO" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{EBFBAEB8-2381-4D86-904B-39E7C2202A14}"
+          DTS:From="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PRODUCTO_HURTADO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PERSONA" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E665A6AD-BA5E-4A2D-8BD5-3BDE3013967C}"
+          DTS:From="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PERSONA"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_UBICACION" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{D8E742CF-C2FD-42A9-9863-02BF7FC8DA44}"
+          DTS:From="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_UBICACION"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_SEDE_RECEPTORA" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2B8E2333-ED6F-475E-82FA-0667BB77F59D}"
+      DTS:From="Package\SEQ_PROCEDIMIENTO_CARGUE_TABLA_HURTO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQ_PROCESAMIENTO_DIM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{E8EB73C2-A929-4438-8CFD-602BBC294DFC}"
+      DTS:From="Package\SEQ_PROCESAMIENTO_DIM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQ_PROCEDIMIENTO_FACT_TABLE_HURTOS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{297999C3-6F16-48A2-ABCE-217A97C851EA}"
+      DTS:From="Package\SEQ_PROCEDIMIENTO_FACT_TABLE_HURTOS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SEQ_PROCEDIMIENTO_CUBO" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="183.111111111112,41.7777777777778"
+          Id="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PERSONA"
+          TopLeft="297.062488414347,133.129309559832" />
+        <EdgeLayout
+          Id="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint 1]"
+          TopLeft="392.510405447334,71.1302580127217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.9990515471106"
+              Start="0,0"
+              End="0,54.4990515471106">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.4990515471106" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint 2]"
+          TopLeft="297.062488414347,153.695401483143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-82.1180450516168,0"
+              Start="0,0"
+              End="-74.6180450516168,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-74.6180450516168,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="227.111111111112,41.7777777777778"
+          Id="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_MODALIDAD_HURTO"
+          TopLeft="5.5,25.0459793259405" />
+        <EdgeLayout
+          Id="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint]"
+          TopLeft="232.611111111111,48.0881186693311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.0138780358766,0"
+              Start="0,0"
+              End="38.5138780358766,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5138780358766,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="235.555555555556,41.7777777777778"
+          Id="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_PRODUCTO_HURTADO"
+          TopLeft="278.624989146988,29.3524802349439" />
+        <NodeLayout
+          Size="182.222222222223,41.7777777777778"
+          Id="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_UBICACION"
+          TopLeft="32.7222211405082,132.483715628677" />
+        <EdgeLayout
+          Id="Package\SEQ_PROCESAMIENTO_DIM.PrecedenceConstraints[Constraint 3]"
+          TopLeft="120.79166633277,174.261493406454">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89.174330315166"
+              Start="0,0"
+              End="0,81.674330315166">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.674330315166" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183.111111111112,41.7777777777778"
+          Id="Package\SEQ_PROCESAMIENTO_DIM\ETL_DIM_SEDE_RECEPTORA"
+          TopLeft="26.1944448583653,263.435823721621" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="519.111111111112,360"
+          Size="519.111111111112,403.111111111112"
+          Id="Package\SEQ_PROCESAMIENTO_DIM"
+          TopLeft="469.138875262605,33.0287344602188" />
+        <NodeLayout
+          Size="183.111111111112,41.7777777777778"
+          Id="Package\SEQ_PROCEDIMIENTO_FACT_TABLE_HURTOS\ETL_FACT_TABLE_HURTOS"
+          TopLeft="76.3888603338498,51.0932442036839" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="322.666666666667,148.888888888889"
+          Size="322.666666666667,192"
+          Id="Package\SEQ_PROCEDIMIENTO_FACT_TABLE_HURTOS"
+          TopLeft="1048.37496569698,136.0268217366" />
+        <NodeLayout
+          Size="147.555555555556,41.7777777777778"
+          Id="Package\SEQ_PROCEDIMIENTO_CARGUE_TABLA_HURTO\el_hurto_moto"
+          TopLeft="55.5555278283589,52.8863477109265" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="265.777777777778,148.888888888889"
+          Size="265.777777777778,192"
+          Id="Package\SEQ_PROCEDIMIENTO_CARGUE_TABLA_HURTO"
+          TopLeft="120.666695685298,144.091961216936" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="386.444473463076,237.338125616355">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.6944017995296,0"
+              Start="0,0"
+              End="75.1944017995296,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="75.1944017995296,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="988.249986373717,233.305555876187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.1249793232599,0"
+              Start="0,0"
+              End="52.6249793232599,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.6249793232599,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163.111111111112,41.7777777777778"
+          Id="Package\SEQ_PROCEDIMIENTO_CUBO\PROCESAR_CUBO"
+          TopLeft="24.1666164331975,48.1762527289931" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="217.777777777778,148.888888888889"
+          Size="217.777777777778,192"
+          Id="Package\SEQ_PROCEDIMIENTO_CUBO"
+          TopLeft="1435.61105922196,138.191569053256" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1371.04163236364,233.109195394928">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.5694268583145,0"
+              Start="0,0"
+              End="57.0694268583145,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="57.0694268583145,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[DESKTOP-LSG58H1\TABULAR_UPTC.TABULAR_MOTOS]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

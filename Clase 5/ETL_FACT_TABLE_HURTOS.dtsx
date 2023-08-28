@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{DE588C1A-6CD9-42F3-9711-C8F73BBAD51C}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{F1C8CC01-9A8C-42BD-B3FC-0861A7BB99E3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1451,12 +1451,6 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
                       externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_PERSONA]"
                       lineageId="Package\FACT_TABLE_HURTOS\LKP_DIM_PERSONA.Outputs[Lookup Match Output].Columns[SK_DIM_PERSONA]" />
                     <inputColumn
-                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cantidad]"
-                      cachedDataType="r8"
-                      cachedName="cantidad"
-                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUM_CANTIDAD]"
-                      lineageId="Package\FACT_TABLE_HURTOS\FACT_TABLE_HURTOS.Outputs[OLE DB Source Output].Columns[cantidad]" />
-                    <inputColumn
                       refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CARGUE]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FECHA_CARGUE"
@@ -1468,6 +1462,12 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
                       cachedName="CONV_SK_DIM_TIEMPO"
                       externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SK_DIM_TIEMPO]"
                       lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[CONV_SK_DIM_TIEMPO]" />
+                    <inputColumn
+                      refId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CANTIDAD]"
+                      cachedDataType="i4"
+                      cachedName="CANTIDAD"
+                      externalMetadataColumnId="Package\FACT_TABLE_HURTOS\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NUM_CANTIDAD]"
+                      lineageId="Package\FACT_TABLE_HURTOS\Derived Column.Outputs[Derived Column Output].Columns[CANTIDAD]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1702,7 +1702,9 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.51447265625,7.980621515673,69.0289453125,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1725,7 +1727,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-29.1161828706993,5,129.350078125,16"
+              BoundingBox="-40.1328820894493,5,151.3834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1749,7 +1751,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-22.7345689791344,5,129.350078125,16"
+              BoundingBox="-33.7512681978844,5,151.3834765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1773,7 +1775,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.3961440986781,96.3827734375,11.609375"
+              BoundingBox="-87.48673828125,11.3961440986781,174.9734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1797,7 +1799,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,5.18039760177814,96.3827734375,11.609375"
+              BoundingBox="-87.48673828125,5.18039760177814,174.9734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1821,7 +1823,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,12.0632653019402,96.3827734375,11.609375"
+              BoundingBox="-87.48673828125,12.0632653019402,174.9734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1845,7 +1847,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.7572098145366,96.3827734375,11.609375"
+              BoundingBox="-87.48673828125,10.7572098145366,174.9734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1869,7 +1871,7 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,13.6317754943214,96.3827734375,11.609375"
+              BoundingBox="-87.48673828125,13.6317754943214,174.9734765625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1892,7 +1894,9 @@ where [refTable].[LLAVE_DIM_UBICACION] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-34.51447265625,11.0687442225908,69.0289453125,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
